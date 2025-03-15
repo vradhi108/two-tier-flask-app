@@ -35,7 +35,7 @@ services:
     depends_on:
       - mysql
     networks:
-      - flask-ci-cd_twotier
+      - twotier
     restart: always
     healthcheck:
       test: ["CMD-SHELL", "curl -f http://flask-app:5000/health || exit 1"]
@@ -46,3 +46,5 @@ services:
 
 networks:
   twotier:
+    name: twotier
+    driver: bridge
